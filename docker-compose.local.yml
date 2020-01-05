@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  app:
+    build:
+      dockerfile: ./docker/Dockerfile.local
+      context: .
+    environment:
+      - PORT=8080
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    networks:
+      - app
+    volumes:
+      - ./:/app/
+
+  # postgres:
+  #   image: postgres:alpine
+  #   volumes:
+  #     - ./tmp/db:/var/lib/postgresql/data
+  #   networks:
+  #     - app
+
+volumes:
+  db-data:
+
+networks:
+  app:
