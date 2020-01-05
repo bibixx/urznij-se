@@ -23,8 +23,5 @@ services:
   #   networks:
   #     - app
 
-volumes:
-  db-data:
-
 networks:
   app:
